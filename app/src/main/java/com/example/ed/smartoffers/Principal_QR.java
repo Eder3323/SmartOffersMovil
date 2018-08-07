@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class Principal_QR extends AppCompatActivity {
     Button btnSalir, btnAtras;
-    TextView txtmail,txtamigos,txtcumple;
+    TextView txtmail,txtcumple;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +23,12 @@ public class Principal_QR extends AppCompatActivity {
 
         txtmail=(TextView) findViewById(R.id.txtEmail);
         txtcumple=(TextView) findViewById(R.id.txtBirtday);
-        txtamigos=(TextView) findViewById(R.id.txtFriends);
-        Bundle men=getIntent().getExtras();
 
-        txtmail.setText(men.getString("mensaje_mail").toString());
-        txtcumple.setText(men.getString("mensaje_cumple").toString());
-        txtamigos.setText(men.getString("mensaje_amigos").toString());
+        Bundle men=getIntent().getExtras();
+            txtmail.setText(men.getString("mail").toString()+" vs "+men.getString("cumple").toString());
+
+
+
 
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override

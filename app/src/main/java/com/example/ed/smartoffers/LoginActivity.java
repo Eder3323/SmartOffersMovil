@@ -115,25 +115,23 @@ public class LoginActivity extends AppCompatActivity {
         if(AccessToken. getCurrentAccessToken() != null)
         {
             txtIdFace.setText(AccessToken.getCurrentAccessToken().getUserId());
-            startActivity(Log_Principal);
+            //startActivity(Log_Principal);
         }
         /////End Facebook Login
         botonConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txtEmail.equals("")&txtFriends.equals("")&txtBirth.equals("")){
+                String txtmail=txtEmail.getText().toString();
+                String txtcumple=txtBirth.getText().toString();
+
+                if (txtmail.equals("")&txtcumple.equals("")){
 
                     Toast.makeText(LoginActivity.this,"Primero tiene quen Loguearse por medio del boton de Facebook...", Toast.LENGTH_SHORT).show();
                 }else {
-                    String txtmail=txtEmail.getText().toString();
-                    String txtcumple=txtBirth.getText().toString();
-                    String txtAmigos=txtFriends.getText().toString();
-
-                    Intent intent=new Intent(LoginActivity.this, Principal.class);
-                    intent.putExtra("mensaje_mail", txtmail);
-                    intent.putExtra("mensaje_cumple", txtcumple);
-                    intent.putExtra("mensaje_amigos", txtAmigos);
-                    startActivity(Log_Principal);
+                    Intent intent=new Intent(LoginActivity.this, Principal_QR.class);
+                    intent.putExtra("mail", txtmail);
+                    intent.putExtra("cumple", txtcumple);
+                    startActivity(intent);
                 }
 
             }
