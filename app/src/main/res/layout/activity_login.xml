@@ -1,0 +1,145 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/chip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt1"
+            android:text="Smart Offerrs"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:textSize="30dp"
+            android:layout_marginTop="100dp"
+            />
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_marginTop="25dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txt1"
+            android:layout_centerHorizontal="true"
+            />
+            <ImageView
+                android:id="@+id/imgEmail"
+                android:layout_marginTop="15dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/avatar"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/mail5"
+                />
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_toRightOf="@+id/imgEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_below="@+id/avatar"
+            android:layout_marginTop="20dp"
+            />
+            <ImageView
+                android:id="@+id/imgBirtday"
+                android:layout_marginTop="15dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/imgEmail"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/calendar512"
+                />
+        <TextView
+            android:id="@+id/txtBirtday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_below="@+id/txtEmail"
+            android:layout_toRightOf="@+id/imgBirtday"
+            android:layout_marginTop="25dp"
+            />
+            <ImageView
+                android:id="@+id/imgFriends"
+                android:layout_marginTop="15dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/imgBirtday"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/friendship"
+                />
+        <TextView
+            android:id="@+id/txtFriends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/txtBirtday"
+            android:layout_toRightOf="@+id/imgFriends"
+            android:layout_marginTop="25dp"
+
+            />
+            <ImageView
+                android:id="@+id/imgId"
+                android:layout_marginTop="15dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/imgFriends"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/id"
+                />
+            <TextView
+                android:id="@+id/txtId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/txtFriends"
+                android:layout_toRightOf="@+id/imgId"
+                android:layout_marginTop="25dp"
+
+                />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/txtId"
+            android:layout_marginTop="25dp"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_button"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="25dp"
+                android:id="@+id/btnConfirmar"
+                android:text="Confirmar"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
