@@ -5,44 +5,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 public class Principal_QR extends AppCompatActivity {
-    Button btnSalir, btnAtras;
+
     TextView txtmail,txtcumple;
+    ImageView imgAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal__qr);
 
-        btnAtras=(Button)findViewById(R.id.btnAtras);
-        btnSalir=(Button)findViewById(R.id.btnSalir);
-
+        imgAvatar=(ImageView)findViewById(R.id.avatar);
 
         txtmail=(TextView) findViewById(R.id.txtEmail);
         txtcumple=(TextView) findViewById(R.id.txtBirtday);
 
         Bundle men=getIntent().getExtras();
-            txtmail.setText(men.getString("mail").toString()+" vs "+men.getString("cumple").toString());
+            txtmail.setText(men.getString("mail"));
+            txtcumple.setText(men.getString("cumple"));
+             Picasso.with(this).load(men.getString("hello")).into(imgAvatar);
 
-
-
-
-        btnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        btnAtras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Principal_QR.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
     //Cuando presionas la tecla de ATRAS no pasara nada con esté método onBackPressed
     @Override

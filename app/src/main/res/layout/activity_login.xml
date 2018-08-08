@@ -9,135 +9,114 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <ImageView
 
+        <ImageView
+            android:id="@+id/imglogo"
             android:layout_width="150px"
             android:layout_height="150px"
             android:layout_centerHorizontal="true"
             android:src="@drawable/chip" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt1"
-            android:text="Smart Offerrs"
-            android:layout_centerHorizontal="true"
-            android:textStyle="bold"
-            android:fontFamily="monospace"
-            android:textSize="30dp"
-            android:layout_marginTop="100dp"
-            />
-
-        <ImageView
-            android:id="@+id/avatar"
-            android:layout_marginTop="25dp"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@+id/txt1"
-            android:layout_centerHorizontal="true"
-            />
+            <TextView
+                android:id="@+id/txtSmart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smart Offerrs"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:textSize="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/imglogo"
+                />
             <ImageView
                 android:id="@+id/imgEmail"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_below="@+id/avatar"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/mail5"
+                android:layout_below="@+id/txtSmart"
+
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/emailvector"
                 />
-        <TextView
-            android:id="@+id/txtEmail"
-            android:layout_toRightOf="@+id/imgEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:layout_below="@+id/avatar"
-            android:layout_marginTop="20dp"
-            />
+            <EditText
+                android:id="@+id/txtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtSmart"
+                android:hint="Correo"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:inputType="textEmailAddress"
+                />
             <ImageView
-                android:id="@+id/imgBirtday"
-                android:layout_marginTop="15dp"
+                android:id="@+id/imgPassword"
+                android:layout_marginTop="40dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_below="@+id/imgEmail"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/calendar512"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/password"
                 />
-        <TextView
-            android:id="@+id/txtBirtday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            <EditText
+                android:id="@+id/txtContraseña"
+                android:layout_below="@+id/txtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-            android:layout_below="@+id/txtEmail"
-            android:layout_toRightOf="@+id/imgBirtday"
-            android:layout_marginTop="25dp"
-            />
-            <ImageView
-                android:id="@+id/imgFriends"
-                android:layout_marginTop="15dp"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_below="@+id/imgBirtday"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/friendship"
+                android:hint="Contraseña"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:inputType="textPassword"
                 />
-        <TextView
-            android:id="@+id/txtFriends"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/txtBirtday"
-            android:layout_toRightOf="@+id/imgFriends"
-            android:layout_marginTop="25dp"
-
-            />
-            <ImageView
-                android:id="@+id/imgId"
-                android:layout_marginTop="15dp"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_below="@+id/imgFriends"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/id"
+            <Button
+                android:id="@+id/btnConfirmar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtContraseña"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="25dp"
+                android:text="Entrar"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                />
+            <TextView
+                android:id="@+id/txtLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----------- ó ----------"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/btnConfirmar"
+                />
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/txtLine"
+                android:layout_marginTop="25dp"
+                android:textSize="22sp"
+                android:layout_centerHorizontal="true"
                 />
             <TextView
                 android:id="@+id/txtId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_below="@+id/txtFriends"
-                android:layout_toRightOf="@+id/imgId"
-                android:layout_marginTop="25dp"
-
-                />
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/txtId"
-            android:layout_marginTop="25dp"
-            android:textSize="20sp"
-            android:layout_centerHorizontal="true"
-            />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_below="@+id/login_button"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="25dp"
-                android:id="@+id/btnConfirmar"
-                android:text="Confirmar"
-                android:textSize="20sp"
-                android:textColor="#000000"
-                android:background="@drawable/my_button_bg"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="140dp"
+
                 />
 
         </RelativeLayout>

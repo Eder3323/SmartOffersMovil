@@ -14,6 +14,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,17 +36,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
 import java.util.Arrays;
+import java.util.logging.Handler;
 
 public class LoginActivity extends AppCompatActivity {
 
     Button botonConfirmar;
     ////Facebook Login //////////////
     CallbackManager callbackManager;
-    TextView txtEmail,txtBirth,txtFriends,txtIdFace;
+    TextView txtIdFace;
+    EditText user_Email,userPass;
     ProgressDialog mDialog;
-    ImageView imgAvatar;
 
-    public Intent Log_Principal;
+    public Intent Log_Principal,Log_Admin;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -60,20 +62,21 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        user_Email= (EditText)findViewById(R.id.txtCorreo);
+        userPass=(EditText)findViewById(R.id.txtContraseña);
+
         Log_Principal = new Intent(this, Principal_QR.class);
+        Log_Admin = new Intent(this, Principal_QR.class);
         botonConfirmar=(Button)findViewById(R.id.btnConfirmar);
+
         //Facebook Login
         callbackManager=CallbackManager.Factory.create();
-        txtBirth=(TextView)findViewById(R.id.txtBirtday);
-        txtEmail=(TextView)findViewById(R.id.txtEmail);
-        txtFriends=(TextView)findViewById(R.id.txtFriends);
         txtIdFace=(TextView)findViewById(R.id.txtId);
 
-        imgAvatar=(ImageView)findViewById(R.id.avatar);
 
 
         final LoginButton loginButton=(LoginButton)findViewById(R.id.login_button);
-        loginButton.setReadPermissions(Arrays.asList("public_profile","email","user_birthday","user_friends"));
+        loginButton.setReadPermissions(Arrays.asList("public_profile","email","user_birthday"));
 
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -86,7 +89,6 @@ public class LoginActivity extends AppCompatActivity {
                 mDialog.setMessage("Retrieving data...");
                 mDialog.show();
 
-                String accesstoken=loginResult.getAccessToken().getToken();
                 GraphRequest request=GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
@@ -97,19 +99,19 @@ public class LoginActivity extends AppCompatActivity {
                 });
                 //request  Graph API
                 Bundle parameters=new Bundle();
-                parameters.putString("fields","id,email,birthday,friends");
+                parameters.putString("fields","id,email,birthday");
                 request.setParameters(parameters);
                 request.executeAsync();
             }
 
             @Override
             public void onCancel() {
-
+                Toast.makeText(LoginActivity.this,"El logueo ha sido cancelado", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(FacebookException error) {
-
+                Toast.makeText(LoginActivity.this,"Encontramos un Error!!::. Intente más tarde", Toast.LENGTH_SHORT).show();
             }
         });
         if(AccessToken. getCurrentAccessToken() != null)
@@ -121,32 +123,30 @@ public class LoginActivity extends AppCompatActivity {
         botonConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txtmail=txtEmail.getText().toString();
-                String txtcumple=txtBirth.getText().toString();
-
-                if (txtmail.equals("")&txtcumple.equals("")){
-
-                    Toast.makeText(LoginActivity.this,"Primero tiene quen Loguearse por medio del boton de Facebook...", Toast.LENGTH_SHORT).show();
-                }else {
-                    Intent intent=new Intent(LoginActivity.this, Principal_QR.class);
-                    intent.putExtra("mail", txtmail);
-                    intent.putExtra("cumple", txtcumple);
-                    startActivity(intent);
-                }
 
             }
         });
+
     }
+
     /////Facebook Login
     private void getData(JSONObject object) {
         try {
             URL profile_picture=new URL("https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250");
+            //my metod
+            String txtmail=object.getString("email");
+            String txtcumple=object.getString("birthday");
 
-            Picasso.with(this).load(profile_picture.toString()).into(imgAvatar);
+            if (txtmail.equals("")&txtcumple.equals("")){
 
-            txtEmail.setText(object.getString("email"));
-            txtBirth.setText(object.getString("birthday"));
-            txtFriends.setText("Friends: "+object.getJSONObject("friends").getJSONObject("summary").getString("total_count") );
+                Toast.makeText(LoginActivity.this,"Error al obtener Datos de Facebook!!", Toast.LENGTH_SHORT).show();
+            }else {
+                Intent intent=new Intent(LoginActivity.this, Principal_QR.class);
+                intent.putExtra("hello",profile_picture.toString());
+                intent.putExtra("mail", txtmail);
+                intent.putExtra("cumple", txtcumple);
+                startActivity(intent);
+            }
 
         } catch (MalformedURLException e) {
 
