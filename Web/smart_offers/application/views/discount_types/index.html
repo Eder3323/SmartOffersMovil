@@ -1,0 +1,21 @@
+$def with(discount_types)
+<h3>
+    <a href="/discount_types">discount_types</a>
+</h3>
+<table id="datos_tabla" class="table table-hover" cellspacing="0" width="100%">
+    <thead>
+        <th>discount_types</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        $for item in discount_types:
+        <tr>
+            <td><a href='/discount_types/view/$item.id_discount_type'>$item.id_discount_type</a></td>
+            <td><a href='/discount_types/edit/$item.id_discount_type'><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a href='/discount_types/delete/$item.id_discount_type'><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>

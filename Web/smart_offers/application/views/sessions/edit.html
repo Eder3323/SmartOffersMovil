@@ -1,0 +1,28 @@
+$def with(sessions, message)
+<h3>
+    <a href="/sessions">sessions</a>
+</h3>
+$if message != None:
+    <div class="alert alert-warning">
+        <strong>Advertencia </strong> $message
+    </div>
+    <br>
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="session_id" id="session_id" value="$sessions.session_id" />
+
+    <div class="form-group">
+    <label for="atime">atime</label>
+    <input required id="atime" type="text" class="form-control" name="atime" size="30" value="$sessions.atime"/>
+</div><div class="form-group">
+    <label for="data">data</label>
+    <input required id="data" type="text" class="form-control" name="data" size="30" value="$sessions.data"/>
+</div>
+
+    <div class="form-group">
+        <label></label>
+        <button id="send" name="send" class="form-control"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+    </div>
+</form>
+<br>
+<br>
+<br>

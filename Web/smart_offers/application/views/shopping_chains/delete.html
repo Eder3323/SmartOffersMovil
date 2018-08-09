@@ -1,0 +1,41 @@
+$def with(shopping_chains, message)
+<h3>
+    <a href="/shopping_chains">shopping_chains</a>
+</h3>
+$if message != None:
+    <div class="alert alert-warning">
+        <strong>Advertencia </strong> $message
+    </div>
+<br>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id_shopping_chain" id="id_shopping_chain" value="$shopping_chains.id_shopping_chain" />
+
+    <div class="form-group">
+    <label for="client">client</label>
+    <input readonly id="client" type="text" class="form-control" name="client" size="30" value="$shopping_chains.client"/>
+</div><div class="form-group">
+    <label for="offer">offer</label>
+    <input readonly id="offer" type="text" class="form-control" name="offer" size="30" value="$shopping_chains.offer"/>
+</div><div class="form-group">
+    <label for="status">status</label>
+    <input readonly id="status" type="text" class="form-control" name="status" size="30" value="$shopping_chains.status"/>
+</div><div class="form-group">
+    <label for="creator">creator</label>
+    <input readonly id="creator" type="text" class="form-control" name="creator" size="30" value="$shopping_chains.creator"/>
+</div><div class="form-group">
+    <label for="limited_time">limited_time</label>
+    <input readonly id="limited_time" type="text" class="form-control" name="limited_time" size="30" value="$shopping_chains.limited_time"/>
+</div><div class="form-group">
+    <label for="created">created</label>
+    <input readonly id="created" type="text" class="form-control" name="created" size="30" value="$shopping_chains.created"/>
+</div>
+
+    <div class="form-group">
+        <label></label>
+        <button id="send" name="send" class="form-control"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+    </div>
+</form>
+<br>
+<br>
+<br>

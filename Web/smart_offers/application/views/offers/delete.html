@@ -1,0 +1,47 @@
+$def with(offers, message)
+<h3>
+    <a href="/offers">offers</a>
+</h3>
+$if message != None:
+    <div class="alert alert-warning">
+        <strong>Advertencia </strong> $message
+    </div>
+<br>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id_offer" id="id_offer" value="$offers.id_offer" />
+
+    <div class="form-group">
+    <label for="name">name</label>
+    <input readonly id="name" type="text" class="form-control" name="name" size="30" value="$offers.name"/>
+</div><div class="form-group">
+    <label for="description">description</label>
+    <input readonly id="description" type="text" class="form-control" name="description" size="30" value="$offers.description"/>
+</div><div class="form-group">
+    <label for="creator">creator</label>
+    <input readonly id="creator" type="text" class="form-control" name="creator" size="30" value="$offers.creator"/>
+</div><div class="form-group">
+    <label for="product_name">product_name</label>
+    <input readonly id="product_name" type="text" class="form-control" name="product_name" size="30" value="$offers.product_name"/>
+</div><div class="form-group">
+    <label for="price">price</label>
+    <input readonly id="price" type="text" class="form-control" name="price" size="30" value="$offers.price"/>
+</div><div class="form-group">
+    <label for="discount_value">discount_value</label>
+    <input readonly id="discount_value" type="text" class="form-control" name="discount_value" size="30" value="$offers.discount_value"/>
+</div><div class="form-group">
+    <label for="new_price">new_price</label>
+    <input readonly id="new_price" type="text" class="form-control" name="new_price" size="30" value="$offers.new_price"/>
+</div><div class="form-group">
+    <label for="created">created</label>
+    <input readonly id="created" type="text" class="form-control" name="created" size="30" value="$offers.created"/>
+</div>
+
+    <div class="form-group">
+        <label></label>
+        <button id="send" name="send" class="form-control"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+    </div>
+</form>
+<br>
+<br>
+<br>
