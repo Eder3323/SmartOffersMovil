@@ -1,0 +1,71 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imglogo"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/chip" />
+
+            <TextView
+                android:id="@+id/txtSmart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smart Offerrs"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:textSize="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/imglogo"
+                />
+            <ImageView
+                android:id="@+id/imgEmail"
+                android:layout_marginTop="25dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/txtSmart"
+
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/emailvector"
+                />
+            <EditText
+                android:id="@+id/txtId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtSmart"
+                android:hint="Correo"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:inputType="textEmailAddress"
+                />
+            <Button
+                android:id="@+id/btnGenerar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtId"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="25dp"
+                android:text="Generar"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:background="#FF0040"
+                />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
