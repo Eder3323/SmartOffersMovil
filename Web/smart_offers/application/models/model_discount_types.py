@@ -4,51 +4,53 @@ import config
 db = config.db
 
 
-def get_all_logs():
+def get_all_discount_types():
     try:
-        return db.select('logs')
+        return db.select('discount_types')
     except Exception as e:
         print "Model get all Error {}".format(e.args)
         print "Model get all Message {}".format(e.message)
         return None
 
 
-def get_logs(id_log):
+def get_discount_types(id_discount_type):
     try:
-        return db.select('logs', where='id_log=$id_log', vars=locals())[0]
+        return db.select('discount_types', where='id_discount_type=$id_discount_type', vars=locals())[0]
     except Exception as e:
         print "Model get Error {}".format(e.args)
         print "Model get Message {}".format(e.message)
         return None
 
 
-def delete_logs(id_log):
+def delete_discount_types(id_discount_type):
     try:
-        return db.delete('logs', where='id_log=$id_log', vars=locals())
+        return db.delete('discount_types', where='id_discount_type=$id_discount_type', vars=locals())
     except Exception as e:
         print "Model delete Error {}".format(e.args)
         print "Model delete Message {}".format(e.message)
         return None
 
 
-def insert_logs(username,ip,access):
+def insert_discount_types(name,description,value,created):
     try:
-        return db.insert('logs',username=username,
-ip=ip,
-access=access)
+        return db.insert('discount_types',name=name,
+description=description,
+value=value,
+created=created)
     except Exception as e:
         print "Model insert Error {}".format(e.args)
         print "Model insert Message {}".format(e.message)
         return None
 
 
-def edit_logs(id_log,username,ip,access):
+def edit_discount_types(id_discount_type,name,description,value,created):
     try:
-        return db.update('logs',id_log=id_log,
-username=username,
-ip=ip,
-access=access,
-                  where='id_log=$id_log',
+        return db.update('discount_types',id_discount_type=id_discount_type,
+name=name,
+description=description,
+value=value,
+created=created,
+                  where='id_discount_type=$id_discount_type',
                   vars=locals())
     except Exception as e:
         print "Model update Error {}".format(e.args)
