@@ -1,5 +1,0 @@
-'/companies', 'application.controllers.companies.index.Index',
-'/companies/view/(.+)', 'application.controllers.companies.view.View',
-'/companies/edit/(.+)', 'application.controllers.companies.edit.Edit',
-'/companies/delete/(.+)', 'application.controllers.companies.delete.Delete',
-'/companies/insert', 'application.controllers.companies.insert.Insert',

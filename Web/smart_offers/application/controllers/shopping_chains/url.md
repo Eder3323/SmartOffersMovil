@@ -1,5 +1,0 @@
-'/shopping_chains', 'application.controllers.shopping_chains.index.Index',
-'/shopping_chains/view/(.+)', 'application.controllers.shopping_chains.view.View',
-'/shopping_chains/edit/(.+)', 'application.controllers.shopping_chains.edit.Edit',
-'/shopping_chains/delete/(.+)', 'application.controllers.shopping_chains.delete.Delete',
-'/shopping_chains/insert', 'application.controllers.shopping_chains.insert.Insert',

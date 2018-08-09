@@ -1,5 +1,0 @@
-'/company_types', 'application.controllers.company_types.index.Index',
-'/company_types/view/(.+)', 'application.controllers.company_types.view.View',
-'/company_types/edit/(.+)', 'application.controllers.company_types.edit.Edit',
-'/company_types/delete/(.+)', 'application.controllers.company_types.delete.Delete',
-'/company_types/insert', 'application.controllers.company_types.insert.Insert',

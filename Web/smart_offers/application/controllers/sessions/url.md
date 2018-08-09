@@ -1,5 +1,0 @@
-'/sessions', 'application.controllers.sessions.index.Index',
-'/sessions/view/(.+)', 'application.controllers.sessions.view.View',
-'/sessions/edit/(.+)', 'application.controllers.sessions.edit.Edit',
-'/sessions/delete/(.+)', 'application.controllers.sessions.delete.Delete',
-'/sessions/insert', 'application.controllers.sessions.insert.Insert',
