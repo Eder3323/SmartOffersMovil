@@ -6,3 +6,24 @@ $var privilege: $params['privilege']
 <p>Welcome to Kuorra </p>
 <br>
 <br>
+
+
+<video id="preview"></video>
+
+<script>
+    let scanner = new Instascan.Scanner({
+        video: document.getElementById('preview')
+    });
+
+    scanner.addListener('scan', function(content){
+        alert('Contenido' + content);
+        window.open(content, "_blank");
+    });
+    Instascan.Camera.getCameras().then(cameras => {
+        if(cameras.length > 0){
+            scanner.start(cameras[0]);
+        } else {
+            console.error("No existe ninguna camara");
+        }
+    });
+</script>
