@@ -3,12 +3,62 @@ $var username: $params['username']
 $var privilege: $params['privilege']
 
 <h1>User $params['username']</h1>
-<p>Welcome to Kuorra </p>
-<br>
-<br>
+<p>Bienvenido a Smart Offers</p>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="panel">
+                <div class="thumbnail">
+                    <video id="preview" alt="Lights" style="width:100%"></video>
+                    <div class="caption">
+                        <h1>Lector QR</h1>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Oferta Demo 1</div>
+                <div class="panel-body">
+                        <h6>OFERTA 15% Descuento en Brochas</h6>
+                        <small>
+                                <b>Fecha Limite:</b>  19 de Agosto del 2018
+                                <br>
+                                <b>Duración:</b>  45 minutos.
+                                <br>
+                                <b>Descripción:</b> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non architecto veniam voluptates. Quisquam provident dignissimos quidem culpa debitis, architecto, sequi harum sed animi excepturi voluptate maxime optio, adipisci soluta molestiae.
+                        </small>
+                </div>
+                </div>
+                
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Oferta Demo 2</div>
+                         <div class="panel-body">
+                            <h6><b>OFERTA 2x1 Martillos</b></h6>
+                            <small>
+                                <b>Fecha Limite:</b>  15 de Agosto del 2018
+                                <br>
+                                <b>Duración:</b>  30 minutos.
+                                <br>
+                                <b>Descripción:</b> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non architecto veniam voluptates. Quisquam provident dignissimos quidem culpa debitis, architecto, sequi harum sed animi excepturi voluptate maxime optio, adipisci soluta molestiae.
+                                <br>
+                            </small>
+                        </div>
+                    </div>
+                    <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                    Smart Offers Recomienda: 
+                                <div class="panel-body">
+                                <h2>
+                                    Prueba ofertando tus articulos con más existencia en tu inventario.
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
 
 
-<video id="preview"></video>
 
 <script>
     let scanner = new Instascan.Scanner({
@@ -16,8 +66,9 @@ $var privilege: $params['privilege']
     });
 
     scanner.addListener('scan', function(content){
-        alert('Contenido' + content);
-        window.open(content, "_blank");
+        alert('Contenido\n' + content + '\n Oferta DEMO ESTÁ ACTIVA');
+        console.log(content);
+        //window.open(content, "_blank");
     });
     Instascan.Camera.getCameras().then(cameras => {
         if(cameras.length > 0){

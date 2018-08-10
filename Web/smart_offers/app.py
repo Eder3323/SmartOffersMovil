@@ -6,7 +6,7 @@ import config
 
 
 #activate ssl certificate
-ssl = False
+ssl = True
 
 urls = (
     '/', 'application.controllers.main.index.Index',
@@ -47,7 +47,7 @@ if web.config.get('_session') is None:
         )
     web.config._session = session
     web.config.session_parameters['cookie_name'] = 'kuorra'
-    web.config.session_parameters['timeout'] = 100
+    web.config.session_parameters['timeout'] = 600
     web.config.session_parameters['expired_message'] = 'Session expired'
     web.config.session_parameters['ignore_expiry'] = False
     web.config.session_parameters['ignore_change_ip'] = False
