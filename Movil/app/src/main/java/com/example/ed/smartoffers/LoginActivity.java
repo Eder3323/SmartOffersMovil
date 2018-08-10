@@ -44,8 +44,15 @@ public class LoginActivity extends AppCompatActivity {
     ////Facebook Login //////////////
     CallbackManager callbackManager;
     TextView txtIdFace;
-    EditText user_Email,userPass;
+    EditText user_Email, userPass;
     ProgressDialog mDialog;
+     String someVariable;
+
+  //  private Session sessionhola;//global variable
+    //sessionhola = new Session(); //in oncreate
+//and now we set sharedpreference then use this like
+
+
 
     public Intent Log_Principal,Log_Admin;
 
@@ -66,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         userPass=(EditText)findViewById(R.id.txtContraseña);
 
         Log_Principal = new Intent(this, Principal_QR.class);
-        Log_Admin = new Intent(this, Principal_QR.class);
+        Log_Admin = new Intent(this, AdminActivity.class);
         botonConfirmar=(Button)findViewById(R.id.btnConfirmar);
 
         //Facebook Login
@@ -118,12 +125,40 @@ public class LoginActivity extends AppCompatActivity {
         {
             txtIdFace.setText(AccessToken.getCurrentAccessToken().getUserId());
             //startActivity(Log_Principal);
+            String Idtoken=AccessToken.getCurrentAccessToken().getUserId();
+
+            Intent intent=new Intent(LoginActivity.this, AdminActivity.class);
+            intent.putExtra("idtoken", Idtoken);
+            startActivity(intent);
         }
         /////End Facebook Login
         botonConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try{
+                    if (user_Email.getText().equals("") || userPass.getText().equals("")) {
+                        Toast.makeText(LoginActivity.this,"Por favor introduzca usuario y/o contraseña!!", Toast.LENGTH_SHORT).show();
 
+                    }else {
+                       // String user = user_Email.getText().toString();
+                        //String pass = userPass.getText().toString();
+                        String user = "admin";
+                        String pass = "password";
+
+                        if(user.equals("user") && pass.equals("password")){
+
+                            startActivity(Log_Principal);
+                        }else if(user.equals("admin") && pass.equals("password")){
+                            startActivity(Log_Admin);
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this,"Usuario o Clave incorrecta..!!", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                }catch(Exception e){
+                    Toast.makeText(LoginActivity.this,"Error...\n"+e, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -145,7 +180,11 @@ public class LoginActivity extends AppCompatActivity {
                 intent.putExtra("hello",profile_picture.toString());
                 intent.putExtra("mail", txtmail);
                 intent.putExtra("cumple", txtcumple);
+                intent.putExtra("id",AccessToken.getCurrentAccessToken().getUserId());
                 startActivity(intent);
+
+              //someVari|ble=AccessToken.getCurrentAccessToken().getUserId();
+               // session.setusename(someVariable);
             }
 
         } catch (MalformedURLException e) {
@@ -154,6 +193,7 @@ public class LoginActivity extends AppCompatActivity {
 
         }
     }
+
 
     private void printKeyHash() {
 
