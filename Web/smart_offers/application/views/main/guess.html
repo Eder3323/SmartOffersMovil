@@ -3,7 +3,7 @@ $var username: $params['username']
 $var privilege: $params['privilege']
 
 <h1>User $params['username']</h1>
-<p>Bienvenido a Smart Offers</p>
+<h3>Bienvenido a Smart Offers</h3>
 
     <div class="row">
         <div class="col-sm-8">
@@ -66,7 +66,7 @@ $var privilege: $params['privilege']
     });
 
     scanner.addListener('scan', function(content){
-        alert('Contenido\n' + content + '\n Oferta DEMO ESTÁ ACTIVA');
+        alert('Contenido: \n' + content + '\n Oferta DEMO ESTÁ ACTIVA');
         console.log(content);
         //window.open(content, "_blank");
     });
